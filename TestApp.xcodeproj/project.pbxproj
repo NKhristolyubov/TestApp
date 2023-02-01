@@ -8,18 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		54473FDA298A4098000CA9BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FD9298A4098000CA9BE /* AppDelegate.swift */; };
-		54473FDE298A4098000CA9BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FDD298A4098000CA9BE /* MainViewController.swift */; };
+		54473FDE298A4098000CA9BE /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FDD298A4098000CA9BE /* MainTableViewController.swift */; };
 		54473FE3298A4098000CA9BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54473FE2298A4098000CA9BE /* Assets.xcassets */; };
 		54473FE6298A4098000CA9BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54473FE4298A4098000CA9BE /* LaunchScreen.storyboard */; };
+		54473FF3298A47C7000CA9BE /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FF2298A47C7000CA9BE /* Resources.swift */; };
+		54473FF6298A4B50000CA9BE /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FF5298A4B50000CA9BE /* MainTableViewCell.swift */; };
+		54473FFA298A4E6E000CA9BE /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FF9298A4E6E000CA9BE /* UIView + Extensions.swift */; };
+		54473FFE298A6CD5000CA9BE /* EditingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FFD298A6CD5000CA9BE /* EditingTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		54473FD6298A4098000CA9BE /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54473FD9298A4098000CA9BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54473FDD298A4098000CA9BE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		54473FDD298A4098000CA9BE /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		54473FE2298A4098000CA9BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54473FE5298A4098000CA9BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54473FE7298A4098000CA9BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		54473FF2298A47C7000CA9BE /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		54473FF5298A4B50000CA9BE /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		54473FF9298A4E6E000CA9BE /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		54473FFD298A6CD5000CA9BE /* EditingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,9 @@
 			children = (
 				54473FEE298A4263000CA9BE /* Applications */,
 				54473FEF298A43BE000CA9BE /* MainModule */,
+				54473FFB298A6C9E000CA9BE /* EditingModule */,
+				54473FF1298A47BA000CA9BE /* Resources */,
+				54473FF7298A4E3A000CA9BE /* Extensions */,
 				54473FED298A4251000CA9BE /* SupportingFiles */,
 			);
 			path = TestApp;
@@ -80,6 +91,7 @@
 		54473FEF298A43BE000CA9BE /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				54473FF4298A4B33000CA9BE /* Views */,
 				54473FF0298A43CC000CA9BE /* Controllers */,
 			);
 			path = MainModule;
@@ -88,7 +100,55 @@
 		54473FF0298A43CC000CA9BE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				54473FDD298A4098000CA9BE /* MainViewController.swift */,
+				54473FDD298A4098000CA9BE /* MainTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		54473FF1298A47BA000CA9BE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				54473FF2298A47C7000CA9BE /* Resources.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		54473FF4298A4B33000CA9BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				54473FF5298A4B50000CA9BE /* MainTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		54473FF7298A4E3A000CA9BE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				54473FF8298A4E55000CA9BE /* UIKit */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		54473FF8298A4E55000CA9BE /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				54473FF9298A4E6E000CA9BE /* UIView + Extensions.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		54473FFB298A6C9E000CA9BE /* EditingModule */ = {
+			isa = PBXGroup;
+			children = (
+				54473FFC298A6CAE000CA9BE /* Controllers */,
+			);
+			path = EditingModule;
+			sourceTree = "<group>";
+		};
+		54473FFC298A6CAE000CA9BE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				54473FFD298A6CD5000CA9BE /* EditingTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -163,7 +223,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				54473FDE298A4098000CA9BE /* MainViewController.swift in Sources */,
+				54473FFA298A4E6E000CA9BE /* UIView + Extensions.swift in Sources */,
+				54473FF3298A47C7000CA9BE /* Resources.swift in Sources */,
+				54473FFE298A6CD5000CA9BE /* EditingTableViewController.swift in Sources */,
+				54473FDE298A4098000CA9BE /* MainTableViewController.swift in Sources */,
+				54473FF6298A4B50000CA9BE /* MainTableViewCell.swift in Sources */,
 				54473FDA298A4098000CA9BE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
