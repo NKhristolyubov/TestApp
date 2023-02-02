@@ -15,7 +15,8 @@ class MainTableViewCell: UITableViewCell {
     private let valueLabel = {
         let label = UILabel()
         label.textAlignment = .right
-        label.text = "TestРедактироватьРедактироватьРедактироватьРедактироватьРедактироватьРедактироватьРедактироватьРедактироватьРедактироватьРедактироватьРедактироватьРедактироватьРедактировать"
+        label.text = "Test"
+        label.font = Resources.Fonts.avenirNextRegular(size: 18)
         label.numberOfLines = 0
         return label
     }()
@@ -31,6 +32,8 @@ class MainTableViewCell: UITableViewCell {
     }
     
     private func setupViews() {
+        selectionStyle = .none
+        nameLabel.font = Resources.Fonts.avenirNextRegular(size: 18)
         addView(nameLabel)
         addView(valueLabel)
         
