@@ -22,6 +22,10 @@
 		5447403C298BF53E000CA9BE /* GenderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447403B298BF53E000CA9BE /* GenderPickerView.swift */; };
 		5447403E298BFA63000CA9BE /* GenderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447403D298BFA63000CA9BE /* GenderTextField.swift */; };
 		54474050298CFFEB000CA9BE /* EditingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447404F298CFFEB000CA9BE /* EditingTableView.swift */; };
+		54474053298D07EF000CA9BE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54474052298D07EF000CA9BE /* UserModel.swift */; };
+		54474056298D0B06000CA9BE /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54474055298D0B06000CA9BE /* UserDefaultsManager.swift */; };
+		54474058298D561B000CA9BE /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54474057298D561B000CA9BE /* UIViewController + Extension.swift */; };
+		5447405A298D6628000CA9BE /* UIBarButtonItem + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54474059298D6628000CA9BE /* UIBarButtonItem + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		5447403B298BF53E000CA9BE /* GenderPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderPickerView.swift; sourceTree = "<group>"; };
 		5447403D298BFA63000CA9BE /* GenderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderTextField.swift; sourceTree = "<group>"; };
 		5447404F298CFFEB000CA9BE /* EditingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditingTableView.swift; sourceTree = "<group>"; };
+		54474052298D07EF000CA9BE /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		54474055298D0B06000CA9BE /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		54474057298D561B000CA9BE /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		54474059298D6628000CA9BE /* UIBarButtonItem + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 				54473FEE298A4263000CA9BE /* Applications */,
 				54473FEF298A43BE000CA9BE /* MainModule */,
 				54473FFB298A6C9E000CA9BE /* EditingModule */,
+				54474054298D0AEC000CA9BE /* Services */,
 				54473FF1298A47BA000CA9BE /* Resources */,
 				54473FF7298A4E3A000CA9BE /* Extensions */,
 				54473FED298A4251000CA9BE /* SupportingFiles */,
@@ -105,6 +114,7 @@
 		54473FEF298A43BE000CA9BE /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				54474051298D07DA000CA9BE /* Models */,
 				54473FF4298A4B33000CA9BE /* Views */,
 				54473FF0298A43CC000CA9BE /* Controllers */,
 			);
@@ -147,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				54473FF9298A4E6E000CA9BE /* UIView + Extensions.swift */,
+				54474057298D561B000CA9BE /* UIViewController + Extension.swift */,
+				54474059298D6628000CA9BE /* UIBarButtonItem + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -188,6 +200,22 @@
 				54474039298BD7D1000CA9BE /* PickerViewTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		54474051298D07DA000CA9BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				54474052298D07EF000CA9BE /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		54474054298D0AEC000CA9BE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				54474055298D0B06000CA9BE /* UserDefaultsManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,8 +296,12 @@
 				54473FDE298A4098000CA9BE /* MainTableViewController.swift in Sources */,
 				54473FF6298A4B50000CA9BE /* MainTableViewCell.swift in Sources */,
 				54474034298AD5A5000CA9BE /* TextViewTableViewCell.swift in Sources */,
+				54474053298D07EF000CA9BE /* UserModel.swift in Sources */,
 				54474036298ADBC5000CA9BE /* NameTextView.swift in Sources */,
+				54474058298D561B000CA9BE /* UIViewController + Extension.swift in Sources */,
+				5447405A298D6628000CA9BE /* UIBarButtonItem + Extension.swift in Sources */,
 				54474050298CFFEB000CA9BE /* EditingTableView.swift in Sources */,
+				54474056298D0B06000CA9BE /* UserDefaultsManager.swift in Sources */,
 				54473FDA298A4098000CA9BE /* AppDelegate.swift in Sources */,
 				5447403E298BFA63000CA9BE /* GenderTextField.swift in Sources */,
 				54474038298BCA6E000CA9BE /* DatePickerTableViewCell.swift in Sources */,
