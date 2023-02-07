@@ -37,8 +37,13 @@ final class PickerViewTableViewCell: UITableViewCell {
         genderPickerView.genderDelegate = self
     }
     
-    func configure(name: String) {
+    func configure(name: String, value: String) {
         nameLabel.text = name
+    }
+    
+    func getCellValue() -> String {
+        guard let text = genderTextField.text else { return "" }
+        return text
     }
 }
 

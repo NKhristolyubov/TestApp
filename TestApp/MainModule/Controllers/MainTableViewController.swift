@@ -15,7 +15,9 @@ final class MainTableViewController: UITableViewController {
         super.viewDidLoad()
         setupViews()
         getUserModel()
-        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.idMainTableViewCell)
+//        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.idMainTableViewCell)
+        tableView.register(type: MainTableViewCell.self)
+        print(userModel)
     }
 
     private func setupViews() {
@@ -33,9 +35,22 @@ final class MainTableViewController: UITableViewController {
         navigationController?.pushViewController(editingTableViewController, animated: true)
     }
     
+    public func changeUserModel(model: UserModel) {
+        saveEditModel(model: model)
+        userModel = model
+        tableView.reloadData()
+    }
+    
     private func getUserModel() {
-        
         userModel = UserDefaultsManager.getUserModel()
+    }
+    
+    private func saveEditModel(model: UserModel) {
+        UserDefaultsManager.saveUserValue(key: Resources.NameFields.firstName.rawValue, value: model.firstName)
+        UserDefaultsManager.saveUserValue(key: Resources.NameFields.secondName.rawValue, value: model.secondName)
+        UserDefaultsManager.saveUserValue(key: Resources.NameFields.thirdName.rawValue, value: model.thirdName)
+        UserDefaultsManager.saveUserValue(key: Resources.NameFields.birthday.rawValue, value: model.birthsday)
+        UserDefaultsManager.saveUserValue(key: Resources.NameFields.gender.rawValue, value: model.gender)
     }
 }
 
@@ -48,10 +63,12 @@ extension MainTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.idMainTableViewCell, for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
+//      guard let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.idMainTableViewCell, for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeReusableCell(type: MainTableViewCell.self) else { return UITableViewCell()}
         
         let nameField = Resources.NameFields.allCases[indexPath.row].rawValue
-        cell.configure(name: nameField)
+        let nameValue = UserDefaultsManager.getUserValue(key: nameField)
+        cell.configure(name: nameField, value: nameValue)
         return cell
     }
 }

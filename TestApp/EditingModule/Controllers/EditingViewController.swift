@@ -21,7 +21,7 @@ final class EditingViewController: UIViewController {
     
     init(_ userModel: UserModel) {
         self.userModel = userModel
-        super .init(nibName: nil, bundle: nil)
+        super .init(nibName: nil, bundle: nil) 
     }
     
     required init?(coder: NSCoder) {
@@ -38,35 +38,50 @@ final class EditingViewController: UIViewController {
             action: #selector(saveTapped))
         navigationItem.leftBarButtonItem = UIBarButtonItem.createCastomButton(vc: self, selector: #selector(backButtonTapped))
         view.addView(editingTableView)
+        editingTableView.setUserModel(model: userModel)
     }
     
     @objc private func backButtonTapped() {
-        presentChangeAlert { value in
-            if value {
-                print(self.userModel)
-                self.navigationController?.popViewController(animated: true)
-            } else {
-                self.navigationController?.popViewController(animated: true)
+        
+        let editUserModel = editingTableView.getUserModel()
+        
+        if editUserModel == userModel {
+            navigationController?.popViewController(animated: true)
+        } else {
+            presentChangeAlert { [weak self] value in
+                guard let self = self else { return }
+                if value {
+                    guard let firstVC = self.navigationController?.viewControllers.first as? MainTableViewController else { return }
+                    firstVC.changeUserModel(model: editUserModel)
+                    self.navigationController?.popViewController(animated: true)
+                } else {
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
     
     @objc private func saveTapped() {
-        if authFields() {
+        
+        let editUserModel = editingTableView.getUserModel()
+        print(userModel)
+        print(editUserModel)
+        if authFields(model: editUserModel) {
             presentSimpleAlert(title: "Выполнено", message: "Все обязательные поля заполнены")
         } else {
             presentSimpleAlert(title: "Ошибка", message: "Необходимо заполнить поля: фамилия, имя, дата рождения, пол")
         }
     }
     
-    private func authFields() -> Bool {
-        if userModel.firstName != "" ||
-            userModel.secondName != "" ||
-            userModel.birthsday != "" ||
-            userModel.gender != "" {
-            return true
-        } else {
+    private func authFields(model: UserModel) -> Bool {
+        if model.firstName == "Введите данные" ||
+            model.secondName == "Введите данные" ||
+            model.birthsday == "Введите данные" ||
+            model.gender == "" ||
+            model.gender == "Не указан" {
             return false
+        } else {
+            return true
         }
     }
 }
