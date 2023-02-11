@@ -5,7 +5,7 @@
 //  Created by Nikolai Khristoliubov on 03.02.23.
 //
 
-import Foundation
+import UIKit
 
 class UserDefaultsManager {
     
@@ -42,5 +42,18 @@ class UserDefaultsManager {
         let userDictionary = getUserDictionary()
         let userValue = userDictionary[key] ?? ""
         return userValue
+    }
+    
+    static func saveUserPhoto(image: UIImage) {
+        guard let data = image.jpegData(compressionQuality: 0.5) else { return }
+        UserDefaultsManager.defaults.set(data, forKey: "userPhoto")
+    }
+    
+    static func loadUsetImage() -> UIImage {
+        guard let data = defaults.data(forKey: "userPhoto"),
+              let image = UIImage(data: data) else {
+            return UIImage()
+        }
+        return image
     }
 }

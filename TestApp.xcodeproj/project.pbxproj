@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		540CC56229966C4D00B4221A /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 540CC56129966C4D00B4221A /* MainTableView.swift */; };
 		54473FDA298A4098000CA9BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FD9298A4098000CA9BE /* AppDelegate.swift */; };
-		54473FDE298A4098000CA9BE /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FDD298A4098000CA9BE /* MainTableViewController.swift */; };
+		54473FDE298A4098000CA9BE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FDD298A4098000CA9BE /* MainViewController.swift */; };
 		54473FE3298A4098000CA9BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54473FE2298A4098000CA9BE /* Assets.xcassets */; };
 		54473FE6298A4098000CA9BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54473FE4298A4098000CA9BE /* LaunchScreen.storyboard */; };
 		54473FF3298A47C7000CA9BE /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54473FF2298A47C7000CA9BE /* Resources.swift */; };
@@ -32,9 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		540CC56129966C4D00B4221A /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		54473FD6298A4098000CA9BE /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54473FD9298A4098000CA9BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		54473FDD298A4098000CA9BE /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		54473FDD298A4098000CA9BE /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		54473FE2298A4098000CA9BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54473FE5298A4098000CA9BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54473FE7298A4098000CA9BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,7 +132,7 @@
 		54473FF0298A43CC000CA9BE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				54473FDD298A4098000CA9BE /* MainTableViewController.swift */,
+				54473FDD298A4098000CA9BE /* MainViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				54473FF5298A4B50000CA9BE /* MainTableViewCell.swift */,
+				540CC56129966C4D00B4221A /* MainTableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,9 +303,10 @@
 				54473FFA298A4E6E000CA9BE /* UIView + Extensions.swift in Sources */,
 				5447403A298BD7D1000CA9BE /* PickerViewTableViewCell.swift in Sources */,
 				54473FF3298A47C7000CA9BE /* Resources.swift in Sources */,
+				540CC56229966C4D00B4221A /* MainTableView.swift in Sources */,
 				54473FFE298A6CD5000CA9BE /* EditingViewController.swift in Sources */,
 				5447403C298BF53E000CA9BE /* GenderPickerView.swift in Sources */,
-				54473FDE298A4098000CA9BE /* MainTableViewController.swift in Sources */,
+				54473FDE298A4098000CA9BE /* MainViewController.swift in Sources */,
 				54473FF6298A4B50000CA9BE /* MainTableViewCell.swift in Sources */,
 				54474034298AD5A5000CA9BE /* TextViewTableViewCell.swift in Sources */,
 				54474053298D07EF000CA9BE /* UserModel.swift in Sources */,

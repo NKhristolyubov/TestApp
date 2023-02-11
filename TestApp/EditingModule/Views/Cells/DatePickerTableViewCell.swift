@@ -45,7 +45,11 @@ final class DatePickerTableViewCell: UITableViewCell {
     }
     
     func getCellValue() -> String {
-        datePicker.date.getStringFromData()
+        if datePicker.date.getStringFromData() == Date().getStringFromData() {
+            return ""
+        } else {
+            return datePicker.date.getStringFromData()
+        }
     }
 }
 
