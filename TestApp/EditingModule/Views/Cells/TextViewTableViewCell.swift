@@ -33,14 +33,6 @@ final class TextViewTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupView() {
-        selectionStyle = .none
-        nameLabel.font = Resources.Fonts.avenirNextRegular(size: 18)
-        addView(nameLabel)
-        contentView.addView(nameTextView)
-        nameTextView.delegate = self
-    }
-    
     func configure(name: String, scrollEnable: Bool, value: String) {
         nameLabel.text = name
         nameTextView.isScrollEnabled = scrollEnable
@@ -51,11 +43,20 @@ final class TextViewTableViewCell: UITableViewCell {
     func getCellValue() -> String {
         nameTextView.text == "Введите данные" ? "" : nameTextView.text
     }
+    
+    private func setupView() {
+        selectionStyle = .none
+        nameLabel.font = Resources.Fonts.avenirNextRegular(size: 18)
+        addView(nameLabel)
+        contentView.addView(nameTextView)
+        nameTextView.delegate = self
+    }
 }
 
 //MARK: - TextViewDelegate
 
 extension TextViewTableViewCell: UITextViewDelegate {
+    
     func textViewDidChange(_ textView: UITextView) {
         contentView.heightAnchor.constraint(equalTo: nameTextView.heightAnchor, multiplier: 1).isActive = true
         nameTextViewDelegate?.changeSize()

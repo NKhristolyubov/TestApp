@@ -17,7 +17,6 @@ final class PickerViewTableViewCell: UITableViewCell {
     
     private let genderPickerView = GenderPickerView()
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super .init(style: style, reuseIdentifier: reuseIdentifier)
         setupView()
@@ -28,6 +27,16 @@ final class PickerViewTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    func configure(name: String, value: String) {
+        nameLabel.text = name
+        genderTextField.text = value
+    }
+    
+    func getCellValue() -> String {
+        guard let text = genderTextField.text else { return "" }
+        return text
+    }
+    
     private func setupView() {
         selectionStyle = .none
         nameLabel.font = Resources.Fonts.avenirNextRegular(size: 18)
@@ -35,15 +44,6 @@ final class PickerViewTableViewCell: UITableViewCell {
         genderTextField.inputView = genderPickerView
         contentView.addView(genderTextField)
         genderPickerView.genderDelegate = self
-    }
-    
-    func configure(name: String, value: String) {
-        nameLabel.text = name
-    }
-    
-    func getCellValue() -> String {
-        guard let text = genderTextField.text else { return "" }
-        return text
     }
 }
 
@@ -53,7 +53,6 @@ extension PickerViewTableViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            
             nameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             nameLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.35),
@@ -71,7 +70,5 @@ extension PickerViewTableViewCell: GenderPickerViewProtocol {
         genderTextField.text = Resources.Gender.allCases[row].rawValue
         genderTextField.resignFirstResponder()
     }
-    
-    
 }
 

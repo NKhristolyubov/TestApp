@@ -13,10 +13,8 @@ class MainTableView: UITableView {
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
-        
         dataSource = self
         delegate = self
-        
         register(type: MainTableViewCell.self)
     }
     
@@ -28,8 +26,6 @@ class MainTableView: UITableView {
         valueArray = array
     }
 }
-
-
 
 //MARK: - UITableViewDataSource
 

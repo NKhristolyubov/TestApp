@@ -21,6 +21,16 @@ final class EditingViewController: UIViewController {
     private let editingTableView = EditingTableView()
     private var userModel = UserModel()
     
+    init(userModel: UserModel, userPhoto: UIImage?) {
+        self.userModel = userModel
+        self.userPhotoImageView.image = userPhoto
+        super .init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -30,16 +40,6 @@ final class EditingViewController: UIViewController {
     
     override func viewWillLayoutSubviews() {
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.width / 2
-    }
-    
-    init(userModel: UserModel, userPhoto: UIImage?) {
-        self.userModel = userModel
-        self.userPhotoImageView.image = userPhoto
-        super .init(nibName: nil, bundle: nil) 
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupViews() {
@@ -57,14 +57,11 @@ final class EditingViewController: UIViewController {
     }
     
     @objc private func backButtonTapped() {
-        
         let editUserModel = editingTableView.getUserModel()
-        
         if authFields(model: editUserModel) == false {
             presentSimpleAlert(title: "Ошибка", message: "Необходимо заполнить поля: фамилия, имя, дата рождения, пол")
             return
         }
-        
         if editUserModel == userModel && userPhotoIsChanged == false {
             navigationController?.popViewController(animated: true)
         } else {
@@ -83,7 +80,6 @@ final class EditingViewController: UIViewController {
     }
     
     @objc private func saveTapped() {
-        
         let editUserModel = editingTableView.getUserModel()
         if authFields(model: editUserModel) {
             presentSimpleAlert(title: "Выполнено", message: "Все обязательные поля заполнены")
@@ -125,8 +121,14 @@ final class EditingViewController: UIViewController {
 
 extension EditingViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as? UIImage
+        userPhotoImageView.image = image
+        userPhotoIsChanged = true
+        dismiss(animated: true)
+    }
+    
     private func presentImagePicker() {
-        
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -134,14 +136,6 @@ extension EditingViewController: UINavigationControllerDelegate, UIImagePickerCo
             imagePicker.sourceType = .photoLibrary
             present(imagePicker, animated: true)
         }
-        
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.editedImage] as? UIImage
-        userPhotoImageView.image = image
-        userPhotoIsChanged = true
-        dismiss(animated: true)
     }
 }
 
@@ -149,6 +143,7 @@ extension EditingViewController: UINavigationControllerDelegate, UIImagePickerCo
 
 @available(iOS 14.0, *)
 extension EditingViewController: PHPickerViewControllerDelegate {
+    
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
         results.forEach { result in
@@ -171,16 +166,14 @@ extension EditingViewController: PHPickerViewControllerDelegate {
         phPickerVC.delegate = self
         present(phPickerVC, animated: true)
     }
-    
-    
 }
 
 //MARK: - Set Constraints
 
 extension EditingViewController {
+    
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            
             userPhotoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             userPhotoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             userPhotoImageView.heightAnchor.constraint(equalToConstant: 100),

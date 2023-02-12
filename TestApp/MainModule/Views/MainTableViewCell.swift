@@ -31,21 +31,20 @@ class MainTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupViews() {
-        selectionStyle = .none
-        nameLabel.font = Resources.Fonts.avenirNextRegular(size: 18)
-        addView(nameLabel)
-        addView(valueLabel)
-        
-    }
-    
     public func configure(name:String, value: String) {
         nameLabel.text = name
         valueLabel.text = value == "" ? "нет данных" : value
     }
     
-    
+    private func setupViews() {
+        selectionStyle = .none
+        nameLabel.font = Resources.Fonts.avenirNextRegular(size: 18)
+        addView(nameLabel)
+        addView(valueLabel)
+    }
 }
+
+//MARK: - Setup Constraints
 
 extension MainTableViewCell {
     

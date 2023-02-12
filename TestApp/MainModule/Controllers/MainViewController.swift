@@ -30,6 +30,18 @@ final class MainViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         userPhotoImageView.layer.cornerRadius = userPhotoImageView.frame.width / 2
     }
+    
+    public func changeUserModel(model: UserModel) {
+        saveEditModel(model: model)
+        userModel = model
+        setValueArray()
+    }
+    
+    public func changeUserPhoto(image: UIImage?) {
+        userPhotoImageView.image = image
+        guard let userPhoto = image else { return }
+        UserDefaultsManager.saveUserPhoto(image: userPhoto)
+    }
 
     private func setupViews() {
         title = "Просмотр"
@@ -63,13 +75,6 @@ final class MainViewController: UIViewController {
         maintableView.reloadData()
     }
     
-    public func changeUserModel(model: UserModel) {
-        saveEditModel(model: model)
-        userModel = model
-        setValueArray()
-        //maintableView.reloadData()
-    }
-    
     private func getUserModel() {
         userModel = UserDefaultsManager.getUserModel()
         let userPhoto = UserDefaultsManager.loadUsetImage()
@@ -83,13 +88,9 @@ final class MainViewController: UIViewController {
         UserDefaultsManager.saveUserValue(key: Resources.NameFields.birthday.rawValue, value: model.birthsday)
         UserDefaultsManager.saveUserValue(key: Resources.NameFields.gender.rawValue, value: model.gender)
     }
-    
-    public func changeUserPhoto(image: UIImage?) {
-        userPhotoImageView.image = image
-        guard let userPhoto = image else { return }
-        UserDefaultsManager.saveUserPhoto(image: userPhoto)
-    }
 }
+
+//MARK: - Setup Constraints
 
 extension MainViewController {
     

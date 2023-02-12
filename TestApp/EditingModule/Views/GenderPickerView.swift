@@ -27,6 +27,8 @@ class GenderPickerView: UIPickerView {
     }
 }
 
+//MARK: - UIPickerViewDataSource
+
 extension GenderPickerView: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
@@ -36,6 +38,8 @@ extension GenderPickerView: UIPickerViewDataSource {
         Resources.Gender.allCases.count
     } 
 }
+
+//MARK: - UIPickerViewDelegate
 
 extension GenderPickerView: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {

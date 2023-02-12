@@ -18,15 +18,15 @@ class GenderTextField: UITextField {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        !isFirstResponder
+    }
+    
     private func configure() {
         textAlignment = .right
         tintColor = .clear
         font = Resources.Fonts.avenirNextRegular(size: 18)
         let font = Resources.Fonts.avenirNextRegular(size: 18)
         attributedPlaceholder = NSAttributedString(string: "Введите данные", attributes: [.foregroundColor : UIColor.lightGray, .font: font as Any])
-    }
-    
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        !isFirstResponder
     }
 }

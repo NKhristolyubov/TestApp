@@ -21,7 +21,6 @@ final class EditingTableView: UITableView {
         register(type: TextViewTableViewCell.self)
         register(type: DatePickerTableViewCell.self)
         register(type: PickerViewTableViewCell.self)
-        
         delegate = self
         dataSource = self
     }
@@ -35,7 +34,6 @@ final class EditingTableView: UITableView {
     }
     
     public func editUserModel() {
-        
         guard let firstNameCell = self.cellForRow(at: [0,0]) as? TextViewTableViewCell,
               let secondNameCell = self.cellForRow(at: [0,1]) as? TextViewTableViewCell,
               let thirdNameCell = self.cellForRow(at: [0,2]) as? TextViewTableViewCell,
@@ -69,16 +67,8 @@ extension EditingTableView: UITableViewDataSource {
         switch indexPath.row {
         case 0...2:
 //            guard let cell = tableView.dequeueReusableCell(withIdentifier: TextViewTableViewCell.idTextViewCell, for: indexPath) as? TextViewTableViewCell else { return UITableViewCell()}
-            
             guard let cell = dequeReusableCell(type: TextViewTableViewCell.self) else { return UITableViewCell()}
-            
             cell.nameTextViewDelegate = self
-//            if indexPath.row == 1 {
-//                cell.configure(name: nameField, scrollEnable: false)
-//            } else {
-//                cell.configure(name: nameField, scrollEnable: true)
-//            }
-//            return cell
             switch indexPath.row {
             case 0: cell.configure(name: nameField, scrollEnable: true, value: userModel.firstName)
                 return cell
@@ -89,22 +79,17 @@ extension EditingTableView: UITableViewDataSource {
             }
         case 3:
 //            guard let cell = tableView.dequeueReusableCell(withIdentifier: DatePickerTableViewCell.idDatePickerCell, for: indexPath) as? DatePickerTableViewCell else { return UITableViewCell()}
-            
             guard let cell = dequeReusableCell(type: DatePickerTableViewCell.self) else { return UITableViewCell()}
-            
             cell.configure(name: nameField, date: userModel.birthsday.getDataFromString())
             return cell
         case 4:
 //            guard let cell = tableView.dequeueReusableCell(withIdentifier: PickerViewTableViewCell.idPickerViewCell, for: indexPath) as? PickerViewTableViewCell else { return UITableViewCell()}
-            
             guard let cell = dequeReusableCell(type: PickerViewTableViewCell.self) else { return UITableViewCell()}
-            
             cell.configure(name: nameField, value: userModel.gender)
             return cell
         default:
             return UITableViewCell()
         }
-        
     }
 }
 
@@ -122,6 +107,4 @@ extension EditingTableView: NameTextViewProtocol {
         beginUpdates()
         endUpdates()
     }
-    
-    
 }
